@@ -1,0 +1,72 @@
+<odoo>
+
+    # Tree view for master data
+    <record id="product_inv_master_tree_view" model="ir.ui.view">
+        <field name="name">product.inv.master.tree.view</field>
+        <field name="model">inv.master.moves</field>
+        <field name="arch" type="xml">
+            <tree create="0" edit="0" delete="0">
+                <field name="create_time"/>
+                <field name="prd_name"/>
+                <field name="prd_type_id"/>
+                <field name="internal_ref_num"/>
+                <field name="store_inv"/>
+                <field name="store_inv_to"/>
+                <field name="batch_no"/>
+                <field name="opening"/>
+                <field name="inward"/>
+                <field name="outward"/>
+                <field name="balance"/>
+                <field name="price_rate"/>
+                <field name="rate_value"/>
+            </tree>
+        </field>
+    </record>
+
+    # Form view for master data
+    <record model="ir.ui.view" id="product_inv_master_form_view">
+        <field name="name">product.inv.master.form.view</field>
+        <field name="model">inv.master.moves</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0" delete="0">
+                <sheet>
+                    <group>
+                        <field name="create_time"/>
+                        <field name="prd_name"/>
+                        <field name="prd_type_id"/>
+                        <field name="internal_ref_num"/>
+                        <field name="store_inv"/>
+                        <field name="store_inv_to"/>
+                        <field name="batch_no"/>
+                        <field name="opening"/>
+                        <field name="inward"/>
+                        <field name="outward"/>
+                        <field name="balance"/>
+                        <field name="price_rate"/>
+                        <field name="rate_value"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    # Action for the menu item
+    <record id="action_inv_product_master_tree_view" model="ir.actions.act_window">
+        <field name="name">Inventory Master</field>
+        <field name="res_model">inv.master.moves</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            </p>
+        </field>
+    </record>
+
+    # Menu item - Inventory Master Report
+    <menuitem
+            id="menu_master_inv_report"
+            name="Inventory Master report"
+            action="action_inv_product_master_tree_view"
+            parent="stock.menu_warehouse_report"
+            sequence="20"/>
+
+</odoo>
